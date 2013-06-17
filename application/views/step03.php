@@ -9,18 +9,26 @@
     <div class="background">
         <div class="mask">
             <div class="content">
-                <span class="question">¿Qué canción está sonando?</span>
-                
-                <div class="panel">
-                    <span class="nr">Pregunta <em>1</em> de 4</span>
-                    <span class="time">07</span>
+                <div class="trivia">
+                    <span class="question">¿Qué canción está sonando?</span>
+                    
+                    <div class="panel">
+                        <span class="nr">Pregunta <em>1</em> de 4</span>
+                        <span class="time">07</span>
+                    </div>
+                    
+                    <div class="answers clearfix">
+                        <a href="#" class="button" data-songid=""></a>
+                        <a href="#" class="button" data-songid=""></a>
+                        <a href="#" class="button" data-songid=""></a>
+                        <a href="#" class="button" data-songid=""></a>
+                    </div>
                 </div>
                 
-                <div class="answers clearfix">
-                    <!--<a href="#" class="button" data-songid="">THERE IS A LIGHT THAT NEVER GOES OUT</a>
-                    <a href="#" class="button" data-songid="">FELL IN LOVE WITH A GIRL</a>
-                    <a href="#" class="button" data-songid="">ISLAND IN THE SUN</a>
-                    <a href="#" class="button" data-songid="">Your Easy Lovin' Ain't Pleasin' Nothin'</a>-->
+                <div class="counter">
+                    <img src="<?php echo site_url('assets/img/three.png'); ?>" class="c-three" />
+                    <img src="<?php echo site_url('assets/img/two.png'); ?>" class="c-two" />
+                    <img src="<?php echo site_url('assets/img/one.png'); ?>" class="c-one" />
                 </div>
             </div>
         </div>

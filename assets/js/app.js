@@ -20,7 +20,23 @@ var app = {
                     debugMode: true,
                     useConsole: true,
                     onready: function() {
-                        app.trivia(1);
+                        // Start Counter
+                        $('.game .counter .c-three').fadeIn(200, function() {
+                            $(this).delay(200).fadeOut(200, function() {
+                                $('.game .counter .c-two').delay(200).fadeIn(200, function() {
+                                    $(this).delay(200).fadeOut(200, function() {
+                                        $('.game .counter .c-one').delay(200).fadeIn(200, function() {
+                                            $(this).delay(200).fadeOut(200, function() {
+                                                // Lets Play!
+                                                $('.game .trivia').fadeIn(500, function() {
+                                                    app.trivia(1);
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
                     }
                 });
             }

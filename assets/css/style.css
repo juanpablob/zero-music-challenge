@@ -325,6 +325,19 @@ section p strong {
   font-size: 81px;
   text-shadow: 0px 0px 50px rgba(255, 255, 255, 0.72);
 }
+.game .counter {
+  width: 470px;
+  position: relative;
+  text-align: center;
+}
+.game .counter img {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 155px;
+  width: 160px;
+  height: 200px;
+}
 .game .score {
   text-align: center;
 }
@@ -341,6 +354,9 @@ section p strong {
   font-size: 50px;
   font-family: 'Marvel', sans-serif;
   display: block;
+}
+.game .trivia {
+  display: none;
 }
 .game .content {
   width: auto;
