@@ -1,0 +1,502 @@
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+/* Fonts */
+@font-face {
+  font-family: 'ds-digitalnormal';
+  src: url('../aux/ds-digi-webfont.eot');
+  src: url('../aux/ds-digi-webfont.eot?#iefix') format('embedded-opentype'), url('../aux/ds-digi-webfont.woff') format('woff'), url('../aux/ds-digi-webfont.ttf') format('truetype'), url('../aux/ds-digi-webfont.svg#ds-digitalnormal') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ds-digitalbold';
+  src: url('../aux/ds-digib-webfont.eot');
+  src: url('../aux/ds-digib-webfont.eot?#iefix') format('embedded-opentype'), url('../aux/ds-digib-webfont.woff') format('woff'), url('../aux/ds-digib-webfont.ttf') format('truetype'), url('../aux/ds-digib-webfont.svg#ds-digitalbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ds-digitalbold_italic';
+  src: url('../aux/ds-digit-webfont.eot');
+  src: url('../aux/ds-digit-webfont.eot?#iefix') format('embedded-opentype'), url('../aux/ds-digit-webfont.woff') format('woff'), url('../aux/ds-digit-webfont.ttf') format('truetype'), url('../aux/ds-digit-webfont.svg#ds-digitalbold_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Common Stuff*/
+.container {
+  width: 810px;
+}
+.none {
+  display: none !important;
+}
+section {
+  width: 810px;
+  height: 800px;
+  position: relative;
+}
+section p {
+  line-height: 130%;
+  color: white;
+  font-family: 'Marvel', sans-serif;
+  font-size: 19px;
+}
+section p strong {
+  font-weight: 700;
+}
+.background {
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+}
+.content {
+  margin: 0 auto;
+  width: 440px;
+  text-align: center;
+}
+.panel {
+  background-image: url('../img/panel.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 443px;
+  height: 84px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: left;
+}
+.panel .nr {
+  font-size: 27px;
+  font-family: 'Marvel', sans-serif;
+  font-weight: bold;
+  color: #65D8EB;
+  text-shadow: 0px 0px 5px rgba(0, 217, 253, 0.7);
+  display: inline-block;
+  padding-top: 32px;
+  margin-left: 95px;
+}
+.panel .nr em {
+  font-style: normal;
+}
+.panel .time {
+  display: inline-block;
+  margin-left: 121px;
+  font-size: 66px;
+  font-family: 'ds-digitalnormal';
+  font-weight: bold;
+  color: #FF2972;
+  text-shadow: 0px 0px 20px rgba(255, 0, 0, 0.7);
+}
+.big {
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 51px;
+  display: block;
+  margin-bottom: 50px;
+  font-weight: 400;
+  text-shadow: 0px 0px 50px rgba(255, 255, 255, 0.42);
+}
+.box {
+  background-image: url('../img/box.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 400px;
+  height: 279px;
+  padding: 20px 20px;
+  -webkit-box-shadow: 0 5px 10px #22282e;
+  -moz-box-shadow: 0 5px 10px #22282e;
+  box-shadow: 0 5px 10px #22282e;
+}
+.button {
+  float: left;
+  color: white;
+  font-family: 'Marvel', sans-serif;
+  font-size: 21px;
+  margin-bottom: 20px;
+  background-image: url('../img/button.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 229px;
+  height: 49px;
+  line-height: 100%;
+  /*padding-top: 23px;*/
+
+}
+.button:hover {
+  color: white;
+  text-decoration: none;
+  background-image: url('../img/button_h.png');
+}
+.button:active {
+  color: white;
+  text-decoration: none;
+  background-image: url('../img/button_h.png');
+}
+.play {
+  width: 129px;
+  height: 22px;
+  padding: 25px 50px;
+}
+.correct,
+.correct:hover {
+  background-image: url('../img/correct.png');
+}
+.incorrect,
+.incorrect:hover {
+  background-image: url('../img/incorrect.png');
+}
+.shine {
+  background-image: url('../img/shine.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 810px;
+  height: 800px;
+  margin: 0 auto;
+}
+.shine2 {
+  background-image: url('../img/good.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 810px;
+  height: 800px;
+  margin: 0 auto;
+}
+.win {
+  background-image: url('../img/win.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 810px;
+  height: 800px;
+  margin: 0 auto;
+}
+.lose {
+  background-image: url('../img/lose.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 810px;
+  height: 800px;
+  margin: 0 auto;
+}
+.mask {
+  background-image: url('../img/mask.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 810px;
+  height: 800px;
+  margin: 0 auto;
+}
+.logo1 {
+  background-image: url('../img/logo1.png');
+  display: block;
+  width: 242px;
+  height: 275px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+  left: 290px;
+}
+.logo1 span {
+  display: none;
+}
+.logo2 {
+  background-image: url('../img/logo2.png');
+  display: block;
+  width: 226px;
+  height: 242px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+  left: 300px;
+}
+.logo2 span {
+  display: none;
+}
+.score {
+  background-image: url('../img/score.png');
+  display: block;
+  width: 158px;
+  height: 208px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+  right: 70px;
+}
+.score span {
+  display: none;
+}
+.final-score {
+  background-image: url('../img/final-score.png');
+  display: block;
+  width: 160px;
+  height: 160px;
+}
+.final-score span {
+  display: none;
+}
+.fan {
+  font-family: 'Marvel', sans-serif;
+  font-size: 23px;
+  color: white;
+}
+.fan .like {
+  background-image: url('../img/like.png');
+  display: block;
+  width: 170px;
+  height: 73px;
+  position: absolute;
+  right: 80px;
+  top: 50px;
+}
+.fan .content {
+  text-align: center;
+  padding-top: 385px;
+}
+.fan .content p {
+  line-height: 130%;
+  text-shadow: 0px 0px 9px rgba(0, 255, 255, 0.98);
+}
+.fan .content img {
+  margin-top: 60px;
+}
+.start .content {
+  padding-top: 335px;
+}
+.start .content p {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.42);
+}
+.start .content img {
+  margin-top: 25px;
+}
+.start .content .button {
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.instructions .content {
+  padding-top: 305px;
+}
+.instructions .content p {
+  text-shadow: 0px 0px 10px #09e0ff;
+  color: #fff;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+.instructions .content span {
+  display: block;
+  font-size: 23px;
+  color: #27E5FF;
+  text-shadow: 0px 0px 3px #09e0ff;
+  font-family: 'Marvel', sans-serif;
+  margin-bottom: 15px;
+}
+.instructions .content .button {
+  margin: 0 auto;
+  margin-top: 25px;
+  text-transform: uppercase;
+}
+.steps .content {
+  padding-top: 430px;
+}
+.steps .content span {
+  display: block;
+  width: 160px;
+  height: 200px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.steps .content .three {
+  background-image: url('../img/three.png');
+}
+.steps .content .two {
+  background-image: url('../img/two.png');
+}
+.steps .content .one {
+  background-image: url('../img/one.png');
+}
+.steps .content .big {
+  margin-top: 75px;
+  font-size: 81px;
+  text-shadow: 0px 0px 50px rgba(255, 255, 255, 0.72);
+}
+.game .score {
+  text-align: center;
+}
+.game .score span {
+  margin-top: 90px;
+  color: #0E647D;
+  font-size: 19px;
+  font-family: 'Pacifico', cursive;
+  display: block;
+}
+.game .score strong {
+  margin-top: 10px;
+  color: #0E647D;
+  font-size: 50px;
+  font-family: 'Marvel', sans-serif;
+  display: block;
+}
+.game .content {
+  width: auto;
+  height: 470px;
+  padding: 330px 165px 0 165px;
+}
+.game .content .question {
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 27px;
+}
+.game .content .answers {
+  margin-top: 50px;
+  padding-left: 12px;
+}
+.good .content {
+  padding-top: 280px;
+  width: 470px;
+}
+.good .content .panel {
+  margin-bottom: 20px;
+}
+.good .content .panel .nr {
+  font-size: 25px;
+  margin-left: 80px;
+}
+.good .content .panel .time {
+  font-size: 58px;
+  margin-left: 96px;
+}
+.good .content .clearfix {
+  margin-bottom: 20px;
+}
+.good .content .big {
+  font-size: 61px;
+}
+.good .content .final-score {
+  text-align: center;
+  float: left;
+  margin-left: 50px;
+}
+.good .content .final-score span {
+  padding-top: 45px;
+  color: #0E647D;
+  font-size: 19px;
+  font-family: 'Pacifico', cursive;
+  display: block;
+}
+.good .content .final-score strong {
+  margin-top: 10px;
+  color: #0E647D;
+  font-size: 50px;
+  font-family: 'Marvel', sans-serif;
+  display: block;
+}
+.good .content .share {
+  float: left;
+  width: 200px;
+  margin-left: 30px;
+  margin-top: 40px;
+  text-align: center;
+}
+.good .content .share span {
+  color: white;
+  font-size: 17px;
+  font-family: 'Pacifico', cursive;
+  display: block;
+  margin-bottom: 25px;
+}
+.good .content .share .twitter {
+  background-image: url('../img/twitter.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 20px;
+}
+.good .content .share .facebook {
+  background-image: url('../img/facebook.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+.ranking .content {
+  padding-top: 265px;
+  width: 440px;
+}
+.ranking .content .big {
+  font-size: 41px;
+  margin-bottom: 40px;
+}
+.ranking .content .box {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.ranking .content .box table {
+  border-spacing: 20px 10px;
+  margin-left: 10px;
+}
+.ranking .content .box table tr {
+  border-bottom: 1px solid #393C43;
+}
+.ranking .content .box table tr:first-child,
+.ranking .content .box table tr:last-child {
+  border: none;
+}
+.ranking .content .box table th {
+  color: white;
+  text-shadow: 0px 0px 10px #09e0ff;
+  font-size: 15px;
+  font-family: 'Marvel', sans-serif;
+}
+.ranking .content .box table td {
+  color: #27E5FF;
+  text-shadow: 0px 0px 10px #09e0ff;
+  font-size: 17px;
+  font-family: 'Marvel', sans-serif;
+}
+.ranking .content .box table .stars {
+  text-align: right;
+  width: 200px;
+}
+footer {
+  position: absolute;
+  bottom: 5px;
+  z-index: 1;
+}
+footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+footer ul li {
+  width: 270px;
+  float: left;
+  text-align: center;
+}
+footer ul li a {
+  color: white;
+  font-family: 'Marvel', sans-serif;
+  font-size: 17px;
+}
+footer ul li a:hover {
+  color: #F91459;
+  text-decoration: none;
+  text-shadow: 0px 0px 9px rgba(255, 104, 150, 0.4);
+}
+/* Fix */
+.good .button,
+.ranking .button,
+.start .button,
+.instructions .button {
+  float: none;
+  display: inline-block;
+  padding-top: 23px;
+}
