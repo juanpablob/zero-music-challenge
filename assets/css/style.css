@@ -79,15 +79,17 @@ section p strong {
   color: #65D8EB;
   text-shadow: 0px 0px 5px rgba(0, 217, 253, 0.7);
   display: inline-block;
+  width: 310px;
   padding-top: 32px;
-  margin-left: 95px;
+  margin-left: 12px;
+  text-align: center;
 }
 .panel .nr em {
   font-style: normal;
 }
 .panel .time {
   display: inline-block;
-  margin-left: 121px;
+  margin-left: 42px;
   font-size: 66px;
   font-family: 'ds-digitalnormal';
   font-weight: bold;
@@ -139,11 +141,6 @@ section p strong {
   color: white;
   text-decoration: none;
   background-image: url('../img/button_h.png');
-}
-.play {
-  width: 129px;
-  height: 22px;
-  padding: 25px 50px;
 }
 .correct,
 .correct:hover {
@@ -382,11 +379,10 @@ section p strong {
 }
 .good .content .panel .nr {
   font-size: 25px;
-  margin-left: 80px;
 }
 .good .content .panel .time {
   font-size: 58px;
-  margin-left: 96px;
+  margin-left: 40px;
 }
 .good .content .clearfix {
   margin-bottom: 20px;
@@ -512,7 +508,8 @@ footer ul li a:hover {
 .good .button,
 .ranking .button,
 .start .button,
-.instructions .button {
+.instructions .button,
+.play {
   float: none;
   display: inline-block;
   padding-top: 23px;

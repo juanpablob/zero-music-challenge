@@ -46,7 +46,7 @@
         public function get_top_users() {
             $this->db->select('firstname, lastname, score');
             $this->db->limit(7);
-            $this->db->order_by('score', 'asc');
+            $this->db->order_by('score', 'desc');
             
             $top_users = $this->db->get('users');
             
