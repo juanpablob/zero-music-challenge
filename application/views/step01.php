@@ -4,7 +4,7 @@
     <div class="background">
         <div class="mask">
             <div class="content">
-                <strong class="big">dsadasdas </strong>
+                <strong class="big">Music Challenge</strong>
                 <p>¿Cuánto sabes de la música de Radio Zero? Atrévete a jugar y participa por uno de estos iPod Shuffle!</p>
                 <img src="<?php echo site_url('assets/tmp/ipod.png'); ?>" alt=""/>
                 
