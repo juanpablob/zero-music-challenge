@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://cdn.plmn.co/radiozero/music-challenge/';
+$config['base_url']	= 'http://localhost/plumon/cdn-scl01.plmn.co/radiozero/music-challenge/';
 
 /*
 |--------------------------------------------------------------------------

@@ -10,12 +10,12 @@
 |
 */
 
-$hook['post_controller_constructor'] = array(
+/*$hook['post_controller_constructor'] = array(
     'class' => 'Check_session',
     'function' => 'check_session',
     'filename' => 'check_session.php',
     'filepath' => 'hooks'
-);
+);*/
 
 
 /* End of file hooks.php */

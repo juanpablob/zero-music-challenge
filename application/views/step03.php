@@ -3,7 +3,7 @@
     
     <div class="score">
         <span>Tu Puntaje</span>
-        <strong>0</strong>
+        <strong><?php echo $user_info->score; ?></strong>
     </div>
     
     <div class="background">

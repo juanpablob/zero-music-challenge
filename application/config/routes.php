@@ -41,6 +41,9 @@
 $route['default_controller'] = "app";
 $route['404_override'] = '';
 
+$route['login/(:any)/(:any)'] = 'app/fb_session/$1/$2';
+$route['logout'] = 'app/logout';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

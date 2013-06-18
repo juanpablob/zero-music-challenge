@@ -123,6 +123,7 @@ section p strong {
   background-image: url('../img/button.png');
   background-repeat: no-repeat;
   background-position: center center;
+  text-transform: uppercase;
   width: 229px;
   height: 49px;
   line-height: 100%;

@@ -40,22 +40,6 @@
             return $result;
         }
         
-        /*public function save($data) {
-            $query = $this->db->get_where('users', array('fb_uid' => $data['fb_uid']));
-            $count = $query->num_rows();
-            
-            if($count === 0) {
-                $this->db->insert('users', $data);
-                
-                return $this->db->insert_id();
-            }
-            else {
-                foreach($query->result() as $row) {
-                    return $row->id;
-                }
-            }
-        }*/
-        
     }
     
 ?>

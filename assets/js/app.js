@@ -2,10 +2,54 @@ var app = {
     /* Variables */
     baseUrl: '/',
     
+    fbAppId: '',
+    fbScope: '',
+    fbAppUrl: '',
+    
+    scoreRegular: 0,
+    scorePlus: 0,
+    scoreMinus: 0,
+    
     triviaData: '',
+    
     questionCount: 1,
+    answerTracking: {
+        regular: 0,
+        plus: 0,
+        minus: 0
+    },
     score: 0,
     
+    /* FB Session */
+    fbSession: function(callback) {
+        FB.getLoginStatus(function(response) {
+            if(response.status === 'connected') {
+                var signedRequest = response.authResponse.signedRequest;
+                var accessToken = response.authResponse.accessToken;
+                //console.log('consumer url: ' + app.baseUrl + 'login/' + signedRequest + '/' + accessToken);
+                
+                $.ajax({
+                    url: app.baseUrl + 'login/' + signedRequest + '/' + accessToken,
+                    beforeSend: function() {
+                        $('.fb-connect').html('Un momento…');
+                        $('.fb-connect').unbind('click');
+                    },
+                    success: function(data) {
+                        if(data.logged === true) {
+                            callback();
+                        }
+                        else {
+                            alert(data.error);
+                            
+                            window.location = app.fbAppUrl;
+                        }
+                    }
+                });
+            }
+        });
+    },
+    
+    /* Constructor */
     gameConstructor: function() {
         // Pull Q&A
         $.ajax({
@@ -43,6 +87,7 @@ var app = {
         });
     },
     
+    /* Trivia Controller */
     trivia: function(question) {
         // Setup
         app.questionCount = question;
@@ -71,12 +116,21 @@ var app = {
                     $(this).addClass('incorrect');
                     $('.content').addClass('lose');
                     
-                    app.score = app.score - 7;
+                    app.score = parseInt(app.score) - parseInt(app.scoreMinus);
+                    app.answerTracking.minus++;
                     $('.score strong').html(app.score);
                     
                     setTimeout(function() {
                         if(question === 4) {
-                            window.location = app.baseUrl + 'app/step04';
+                            $.ajax({
+                                type: 'post',
+                                url: app.baseUrl + '/app/update_score/',
+                                data: app.answerTracking,
+                                success: function(data) {
+                                    window.location = app.baseUrl + 'app/step04';
+                                    //console.log(data);
+                                }
+                            });
                         }
                         else {
                             app.trivia(question + 1);
@@ -140,7 +194,18 @@ var app = {
                     $(this).addClass('correct');
                     $('.content').addClass('win');
                     
-                    app.score = app.score + 12;
+                    // Score
+                    if(remaining > 5) { // Excellent!
+                        app.score = parseInt(app.score) + parseInt(app.scorePlus);
+                        app.answerTracking.plus++;
+                        
+                        // Do an excellent shit
+                    }
+                    else {
+                        app.score = parseInt(app.score) + parseInt(app.scoreRegular);
+                        app.answerTracking.regular++;
+                    }
+                    
                     $('.score strong').html(app.score);
                 }
                 else {
@@ -155,7 +220,8 @@ var app = {
                     
                     $('.content').addClass('lose');
                     
-                    app.score = app.score - 7;
+                    app.score = parseInt(app.score) - parseInt(app.scoreMinus);
+                    app.answerTracking.minus++;
                     $('.score strong').html(app.score);
                 }
                 
@@ -166,7 +232,15 @@ var app = {
                 
                 setTimeout(function() {
                     if(question === 4) {
-                        window.location = app.baseUrl + 'app/step04';
+                        $.ajax({
+                            type: 'post',
+                            url: app.baseUrl + '/app/update_score/',
+                            data: app.answerTracking,
+                            success: function(data) {
+                                window.location = app.baseUrl + 'app/step04';
+                                //console.log(data);
+                            }
+                        });
                     }
                     else {
                         app.trivia(question + 1);
@@ -176,8 +250,27 @@ var app = {
         });
     },
     
+    /* Handler / Triggers */
+    handler: function() {
+        // Facebook Connect
+        $('.fb-connect').click(function(e) {
+            e.preventDefault();
+            
+            var next_url = $(this).attr('href');
+            
+            FB.login(function(response) {
+                app.fbSession(function() {
+                    window.location = next_url;
+                });
+            }, { scope: app.fbScope }
+            );
+        });
+    },
+    
+    /* User Interface Shits */
     ui: function() {
-        $('a[href="#"]').click(function(e) {
+        // Prevent Default on Anchor Links
+        $('body').on('click', 'a[href="#"]', function(e) {
             e.preventDefault();
         });
         
@@ -185,12 +278,76 @@ var app = {
         $('.panel .nr em').html(app.questionCount);
     },
     
+    /* Preload images and files */
+    preload: function() {
+        var images = [
+            app.baseUrl + 'assets/img/box.png',
+            app.baseUrl + 'assets/img/button.png',
+            app.baseUrl + 'assets/img/button_h.png',
+            app.baseUrl + 'assets/img/correct.png',
+            app.baseUrl + 'assets/img/incorrect.png',
+            app.baseUrl + 'assets/img/good.png',
+            app.baseUrl + 'assets/img/win.png',
+            app.baseUrl + 'assets/img/lose.png',
+            app.baseUrl + 'assets/img/mask.png',
+            app.baseUrl + 'assets/img/panel.png',
+            app.baseUrl + 'assets/img/score.png',
+            app.baseUrl + 'assets/img/shine.png',
+            app.baseUrl + 'assets/img/three.png',
+            app.baseUrl + 'assets/img/two.png',
+            app.baseUrl + 'assets/img/one.png'
+        ];
+        
+        var misc = [
+            app.baseUrl + 'media/success.mp3',
+            app.baseUrl + 'media/error.mp3',
+            app.baseUrl + 'media/end.mp3'
+        ];
+        
+        // Preload Images
+        $.each(images, function(i, item) {
+            $('<img src="' + item + '" />');
+        });
+        
+        // Preload Misc Files
+        $.each(misc, function(i, item) {
+            $.ajax({
+                url: item
+            });
+        });
+    },
+    
     /* Initialization */
     init: function(args) {
+        // Setup
         app.baseUrl = args.baseUrl;
         
+        app.fbAppId = args.fbAppId;
+        app.fbScope = args.fbScope;
+        app.fbAppUrl = args.fbAppUrl;
+        
+        app.scoreRegular = args.scoreRegular;
+        app.scorePlus = args.scorePlus;
+        app.scoreMinus = args.scoreMinus;
+        
+        app.score = args.score;
+        
+        FB.init({ 
+            appId: app.fbAppId,
+            cookie: true,
+            status: true,
+            xfbml: true,
+            oauth: true,
+            channelUrl : app.baseUrl + 'app/fb_channel/'
+        });
+        
+        // Preload
+        app.preload();
+        
+        // UI
         app.ui();
         
-        
+        // Hanlder
+        app.handler();
     }
 }

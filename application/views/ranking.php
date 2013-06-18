@@ -10,11 +10,12 @@
                     <table cellpadding="2px">
                         <tr>
                             <th colspan="2">Nombre</th>
-                            <th>Ptje</th>
+                            <th>Puntaje</th>
                         </tr>
-
+                        
+                        <?php foreach($top_users as $user) : ?>
                         <tr>
-                            <td>Claudia Peña Valjalo</td>
+                            <td><?php echo $user->firstname; ?> <?php echo $user->lastname; ?></td>
                             <td class="stars">
                                 <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
                                 <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
@@ -22,78 +23,9 @@
                                 <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
                                 <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
                             </td>
-                            <td>30.000</td>
+                            <td style="text-align: right;"><?php echo $user->score; ?></td>
                         </tr>
-
-                        <tr>
-                            <td>Edgardo Andrés Toro</td>
-                            <td class="stars">
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                            </td>
-                            <td>13.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Alexis Catalán Alvarez</td>
-                            <td class="stars">
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                            </td>
-                            <td>10.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Amanda Romina León</td>
-                            <td class="stars">
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                            </td>
-                            <td>10.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Juan Pablo Barrientos</td>
-                            <td class="stars">
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                            </td>
-                            <td>10.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Gustavo Soto Assad</td>
-                            <td class="stars">
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                            </td>
-                            <td>4.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Jorge Mayorga</td>
-                            <td class="stars">
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                                <img src="<?php echo site_url('assets/tmp/star.png'); ?>" />
-                            </td>
-                            <td>2.000</td>
-                        </tr>
+                        <?php endforeach; ?>
                     </table>
                 </div>
                 

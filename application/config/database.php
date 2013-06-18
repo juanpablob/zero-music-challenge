@@ -45,12 +45,12 @@
 | the active record class
 */
 
-$active_group = 'production';
+$active_group = 'development';
 $active_record = TRUE;
 
 $db['development']['hostname'] = 'localhost';
 $db['development']['username'] = 'root';
-$db['development']['password'] = '2815312';
+$db['development']['password'] = 'root';
 $db['development']['database'] = 'musicchallenge';
 $db['development']['dbdriver'] = 'mysql';
 $db['development']['dbprefix'] = '';
