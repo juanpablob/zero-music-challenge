@@ -4,7 +4,7 @@
     <div class="background">
         <div class="mask">
             <div class="content">
-                <strong class="big">Ranking</strong>
+                <strong class="big">Ranking Top 7</strong>
                 
                 <div class="box">
                     <table cellpadding="2px">
