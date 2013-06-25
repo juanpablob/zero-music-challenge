@@ -124,7 +124,7 @@ var app = {
                         if(question === 4) {
                             $.ajax({
                                 type: 'post',
-                                url: app.baseUrl + '/app/update_score/',
+                                url: app.baseUrl + 'app/update_score/',
                                 data: app.answerTracking,
                                 success: function(data) {
                                     window.location = app.baseUrl + 'app/step04';
@@ -264,6 +264,28 @@ var app = {
                 });
             }, { scope: app.fbScope }
             );
+        });
+        
+        // Share Score
+        $('.share .twitter').click(function() {
+            var text = escape('Ya llevo ' + app.score + ' puntos en el Music Challenge de @radiozero977 #zerochallenge');
+            var url = escape(app.fbAppUrl);
+            
+            window.open('https://twitter.com/intent/tweet?text=' + text + '&tw_p=tweetbutton&url=' + url, 'Tweet', 'width=800, height=600, resizable=0, scrollbars=0, location=0');
+        });
+        
+        $('.share .facebook').click(function() {
+            FB.ui({
+                method: 'feed',
+                //redirect_uri: '',
+                link: app.fbAppUrl,
+                picture: app.baseUrl + '/assets/img/fbpic.png',
+                name: 'Music Challenge de Radio Zero',
+                caption: '¿Cuánto sabes de música?',
+                description: 'Demuestra cuánto sabes de música en el Music Challenge Radio Zero y participa por uno de los iPod Shuffle y entradas a conciertos!'
+            }, function(response) {
+                console.log('postid: ' + response['post_id']);
+            });
         });
     },
     
