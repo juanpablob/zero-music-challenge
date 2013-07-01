@@ -287,6 +287,13 @@ var app = {
                 console.log('postid: ' + response['post_id']);
             });
         });
+        
+        // Tracking
+        $('a[rel="tracking"]').click(function() {
+            var trackSection = $(this).attr('data-track');
+            
+            pageTracker._trackEvent('Radio Zero', trackSection, 'Radio', 'Valor');
+        });
     },
     
     /* User Interface Shits */

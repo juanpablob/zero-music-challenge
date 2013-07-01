@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     
-                    <a href="<?php echo site_url(array('app', 'step03')); ?>" class="button play">¡Seguir Jugando!</a>
+                    <a href="<?php echo site_url(array('app', 'step03')); ?>" class="button play" rel="tracking" data-tracking="Seguir Jugando">¡Seguir Jugando!</a>
                     <a href="<?php echo site_url(array('app', 'ranking')); ?>" class="button">Ver Ranking</a>
                 </div>
             </div>
