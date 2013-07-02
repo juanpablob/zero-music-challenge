@@ -18,7 +18,7 @@ if(ENVIRONMENT === 'development') {
     $config['base_url']	= 'http://localhost/plumon/cdn-scl01.plmn.co/radiozero/music-challenge/';
 }
 elseif(ENVIRONMENT === 'production') {
-    $config['base_url']	= 'http://cdn-scl01.plmn.co/radiozero/music-challenge/';
+    $config['base_url']	= 'https://cdn-scl01.plmn.co/radiozero/music-challenge/';
 }
 
 /*
