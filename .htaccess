@@ -5,6 +5,6 @@ RewriteEngine on
 #RewriteCond $1 !^(index\.php|assets|media|media|robots\.txt)
 #RewriteRule ^(.*)$ index.php?/$1 [L]
 
-#Production
+#Productions
 RewriteCond $1 !^(index\.php|images|assets|media|robots\.txt)
 RewriteRule ^(.*)$ index.php?/$1 [L]
