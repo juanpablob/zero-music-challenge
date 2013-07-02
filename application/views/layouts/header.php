@@ -10,8 +10,8 @@
         <meta name="robots" content="nofollow, noindex" />
         
         <!-- styles -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Marvel:400,700" />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marvel:400,700" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css" />
         <!-- /styles -->
