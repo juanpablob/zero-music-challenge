@@ -71,9 +71,9 @@ $db['development']['autoinit'] = TRUE;
 $db['development']['stricton'] = FALSE;
 
 $db['production']['hostname'] = 'localhost';
-$db['production']['username'] = 'cdn_master';
+$db['production']['username'] = 'cdnscl01_master';
 $db['production']['password'] = '2815312';
-$db['production']['database'] = 'cdn_musicchallenge';
+$db['production']['database'] = 'cdnscl01_musicchallenge';
 $db['production']['dbdriver'] = 'mysql';
 $db['production']['dbprefix'] = '';
 $db['production']['pconnect'] = TRUE;
