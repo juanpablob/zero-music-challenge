@@ -82,14 +82,18 @@
         */
         public function step01() {
             $signed_request = $this->session->userdata['signed_request'];
-            print_r($signed_request['page']['liked']);
             
-            $this->view_data['page_title'] = 'Bienvenido!';
-            
-            // Load view
-            $this->load->view('layouts/header', $this->view_data);
-            $this->load->view('step01.php', $this->view_data);
-            $this->load->view('layouts/footer', $this->view_data);
+            if($signed_request['page']['liked'] == 1) {
+                $this->view_data['page_title'] = 'Bienvenido!';
+                
+                // Load view
+                $this->load->view('layouts/header', $this->view_data);
+                $this->load->view('step01.php', $this->view_data);
+                $this->load->view('layouts/footer', $this->view_data);
+            }
+            else {
+                redirect('/app/no_fan', 'refresh');
+            }
         }
         
         /*
