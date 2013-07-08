@@ -32,14 +32,14 @@
             $this->load->helper('functions');
             
             /* Facebook */
-            /*if(ENVIRONMENT == 'development') {
-                $this->session->userdata['signed_request']['oauth_token'] = '00';
+            if(ENVIRONMENT == 'development') {
+                
             }
             elseif(ENVIRONMENT == 'testing' || ENVIRONMENT == 'production') {
                 if(isset($_POST['signed_request'])) {
-                    $this->session->set_userdata('signed_request', $this->facebook->parseSignedRequest($_POST['signed_request'], $this->config->item('secret', 'facebook')));
+                    $this->session->set_userdata('signed_request', $this->facebook->parse_signed_request($_POST['signed_request'], $this->config->item('secret', 'facebook')));
                 }
-            }*/
+            }
             
             /* Default Data for Views */
             $this->view_data = array(
@@ -81,12 +81,8 @@
         |-------------------------------------------
         */
         public function step01() {
-            if(isset($_POST['signed_request'])) {
-                print_r($_POST['signed_request']);
-                $signed_request = $this->facebook->parse_signed_request($_POST['signed_request'], $this->config->item('secret', 'facebook'));
-                
-                print_r($signed_request);
-            }
+            $signed_request = $this->session->userdata['signed_request'];
+            print_r($signed_request);
             
             $this->view_data['page_title'] = 'Bienvenido!';
             
