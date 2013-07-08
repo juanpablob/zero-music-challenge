@@ -82,6 +82,7 @@
         */
         public function step01() {
             if(isset($_POST['signed_request'])) {
+                echo 'si';
                 $signed_request = $this->facebook->parse_signed_request($_POST['signed_request'], $this->config->item('secret', 'facebook'));
                 
                 print_r($signed_request);
