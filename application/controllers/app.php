@@ -82,7 +82,7 @@
         */
         public function step01() {
             $signed_request = $this->session->userdata['signed_request'];
-            print_r($signed_request);
+            print_r($signed_request['page']['liked']);
             
             $this->view_data['page_title'] = 'Bienvenido!';
             
