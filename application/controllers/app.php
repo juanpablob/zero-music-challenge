@@ -81,6 +81,12 @@
         |-------------------------------------------
         */
         public function step01() {
+            if(isset($_POST['signed_request'])) {
+                $signed_request = $this->facebook->parse_signed_request($signed_request, $this->config->item('secret', 'facebook'));
+                
+                print_r($signed_request);
+            }
+            
             $this->view_data['page_title'] = 'Bienvenido!';
             
             // Load view
