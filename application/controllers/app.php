@@ -259,7 +259,7 @@
                     'firstname'         => $fb_user->first_name,
                     'lastname'          => $fb_user->last_name,
                     'displayname'       => $fb_user->name,
-                    'username'          => $fb_user->username,
+                    'username'          => (isset($fb_user->username)) ? $fb_user->username : $fb_user->id,
                     'gender'            => $fb_user->gender,
                     'birthday'          => $fb_user->birthday,
                     'location'          => (isset($fb_user->hometown)) ? $fb_user->hometown->name : '',
