@@ -8,7 +8,7 @@
 */
 $config = array(
     'site_name'             => 'Music Challenge — Radio Zero',
-    'google_analytics_id'   => ''
+    'google_analytics_id'   => 'UA-42081627-1'
 );
 
 ?>

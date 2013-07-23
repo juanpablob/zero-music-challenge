@@ -32,14 +32,14 @@
             $this->load->helper('functions');
             
             /* Facebook */
-            /*if(ENVIRONMENT == 'development') {
-                $this->session->userdata['signed_request']['oauth_token'] = '00';
+            if(ENVIRONMENT == 'development') {
+                
             }
             elseif(ENVIRONMENT == 'testing' || ENVIRONMENT == 'production') {
                 if(isset($_POST['signed_request'])) {
-                    $this->session->set_userdata('signed_request', $this->facebook->parseSignedRequest($_POST['signed_request'], $this->config->item('secret', 'facebook')));
+                    $this->session->set_userdata('signed_request', $this->facebook->parse_signed_request($_POST['signed_request'], $this->config->item('secret', 'facebook')));
                 }
-            }*/
+            }
             
             /* Default Data for Views */
             $this->view_data = array(
@@ -81,12 +81,19 @@
         |-------------------------------------------
         */
         public function step01() {
-            $this->view_data['page_title'] = 'Bienvenido!';
+            $signed_request = $this->session->userdata['signed_request'];
             
-            // Load view
-            $this->load->view('layouts/header', $this->view_data);
-            $this->load->view('step01.php', $this->view_data);
-            $this->load->view('layouts/footer', $this->view_data);
+            if($signed_request['page']['liked'] == 1) {
+                $this->view_data['page_title'] = 'Bienvenido!';
+                
+                // Load view
+                $this->load->view('layouts/header', $this->view_data);
+                $this->load->view('step01.php', $this->view_data);
+                $this->load->view('layouts/footer', $this->view_data);
+            }
+            else {
+                redirect('/app/no_fan', 'refresh');
+            }
         }
         
         /*
@@ -252,7 +259,7 @@
                     'firstname'         => $fb_user->first_name,
                     'lastname'          => $fb_user->last_name,
                     'displayname'       => $fb_user->name,
-                    'username'          => $fb_user->username,
+                    'username'          => (isset($fb_user->username)) ? $fb_user->username : $fb_user->id,
                     'gender'            => $fb_user->gender,
                     'birthday'          => $fb_user->birthday,
                     'location'          => (isset($fb_user->hometown)) ? $fb_user->hometown->name : '',

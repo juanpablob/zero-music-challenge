@@ -5,7 +5,7 @@
         <div class="mask">
             <div class="content">
                 <strong class="big">Music Challenge</strong>
-                <p>¿Cuánto sabes de la música de Radio Zero? Atrévete a jugar y participa por uno de estos iPod Shuffle!</p>
+                <p>¿Cuánto sabes de la música de Radio Zero? Atrévete a jugar y participa por uno de estos iPod Shuffle, un iPad y entradas a conciertos!</p>
                 <img src="<?php echo site_url('assets/tmp/ipod.png'); ?>" alt=""/>
                 
                 <a href="<?php echo site_url(array('app', 'step02')); ?>" class="button fb-connect">¡Comenzar!</a>
