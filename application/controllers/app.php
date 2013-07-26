@@ -220,6 +220,7 @@
             
             // Get current score
             $score = $this->session->userdata['user_info']->score;
+            $old_score = $this->session->userdata['user_info']->score;
             
             // Calculate new score
             $score = $score + $answers['regular'] * $this->view_data['score_scale']['score_regular'];
@@ -239,7 +240,7 @@
             $this->session->set_userdata('correct_answers', 4 - $answers['minus']);
             
             // Register score instance
-            $this->register_score($this->session->userdata['user_info']->id, $this->session->userdata['user_info']->score);
+            $this->register_score($this->session->userdata['user_info']->id, $this->session->userdata['user_info']->score - $old_score);
         }
         
         public function test() {
