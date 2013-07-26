@@ -6,7 +6,7 @@
             parent::__construct();
         }
         
-        public function register_score($data) {
+        /*public function register_score($data) {
             $this->db->insert('scores', $data);
         }
         
@@ -15,7 +15,7 @@
             $query = $this->db->get('scores');
             
             print_r($query);
-        }
+        }*/
         
     }
     

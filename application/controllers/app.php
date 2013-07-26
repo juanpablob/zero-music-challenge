@@ -18,7 +18,7 @@
             /* Models */
             $this->load->model('User_model', 'user_model', true);
             $this->load->model('Song_model', 'song_model', true);
-            $this->load->model('Score_model', 'score_model', true);
+            //$this->load->model('Score_model', 'score_model', true);
             
             /* Configuration */
             $this->config->load('site', true);
@@ -239,7 +239,7 @@
             $this->session->set_userdata('correct_answers', 4 - $answers['minus']);
             
             // Register score instance
-            $this->score_model->register_score($this->session->userdata['user_info']->id, $this->session->userdata['user_info']->score);
+            //$this->score_model->register_score($this->session->userdata['user_info']->id, $this->session->userdata['user_info']->score);
         }
         
         public function test() {
