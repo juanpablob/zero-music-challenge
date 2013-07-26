@@ -7,6 +7,8 @@
         }
         
         public function register_score($data) {
+            echo 'printr';
+            print_r($data);
             $this->db->insert('scores', $data);
         }
         
