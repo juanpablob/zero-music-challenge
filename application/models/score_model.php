@@ -13,7 +13,7 @@
         }
         
         public function get_top_week() {
-            $query = $this->db->query('SELECT SUM(score) FROM scores ORDER BY WEEK(created), user_id, GROUP BY user_id, WEEK(created)');
+            $query = $this->db->query('SELECT SUM(score) FROM scores ORDER BY WEEK(created), user_id GROUP BY user_id, WEEK(created)');
             
             print_r($query->result());
         }
