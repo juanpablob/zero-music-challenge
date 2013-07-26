@@ -250,7 +250,7 @@
         | Register Score
         |-------------------------------------------
         */
-        private function register_score($user_id, $score) {
+        public function register_score($user_id, $score) {
             $data = array(
                 'user_id' => $user_id,
                 'score' => $score
