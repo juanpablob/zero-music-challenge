@@ -251,13 +251,17 @@
         |-------------------------------------------
         */
         public function register_score($user_id, $score) {
+            echo 'score register';
             $data = array(
                 'user_id' => $user_id,
                 'score' => $score
             );
             
             $this->score_model->register_score($data);
-            echo 'score register';
+            
+        }
+        public function test($lala, $lele) {
+            echo 'register';
         }
         
         /*
