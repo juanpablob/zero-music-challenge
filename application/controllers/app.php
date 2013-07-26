@@ -257,6 +257,7 @@
             );
             
             $this->score_model->register_score($data);
+            echo 'score register';
         }
         
         /*
