@@ -239,9 +239,7 @@
             $this->session->set_userdata('correct_answers', 4 - $answers['minus']);
             
             // Register score instance
-            //$this->score_model->register_score($this->session->userdata['user_info']->id, $this->session->userdata['user_info']->score);
-            echo 'user id: ' . $this->session->userdata['user_info']->id;
-            echo '<br> score: '. $this->session->userdata['user_info']->score;
+            $this->register_score($this->session->userdata['user_info']->id, $this->session->userdata['user_info']->score);
         }
         
         public function test() {
@@ -253,9 +251,6 @@
         |-------------------------------------------
         */
         public function register_score($user_id, $score) {
-            echo 'method register<br>';
-            print_r($user_id);
-            print_r($score);
             $data = array(
                 'user_id' => $user_id,
                 'score' => $score
