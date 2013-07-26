@@ -251,6 +251,9 @@
         |-------------------------------------------
         */
         public function register_score($user_id, $score) {
+            echo 'method register<br>';
+            print_r($user_id);
+            print_r($score);
             $data = array(
                 'user_id' => $user_id,
                 'score' => $score
