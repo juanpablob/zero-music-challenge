@@ -18,6 +18,7 @@
             /* Models */
             $this->load->model('User_model', 'user_model', true);
             $this->load->model('Song_model', 'song_model', true);
+            $this->load->model('Score_model', 'score_model', true);
             
             /* Configuration */
             $this->config->load('site', true);
@@ -236,9 +237,26 @@
             
             // Grab how many correct answers in session
             $this->session->set_userdata('correct_answers', 4 - $answers['minus']);
-        }
-        public function test() {
             
+            // Register score instance
+            $this->score_model->register_score($this->session->userdata['user_info']->id, $this->session->userdata['user_info']->score);
+        }
+        
+        public function test() {
+            $this->score_model->get_top_week();
+        }
+        
+        /*
+        | Register Score
+        |-------------------------------------------
+        */
+        private function register_score($user_id, $score) {
+            $data = array(
+                'user_id' => $user_id,
+                'score' => $score
+            );
+            
+            $this->score_model->register_score($data);
         }
         
         /*
