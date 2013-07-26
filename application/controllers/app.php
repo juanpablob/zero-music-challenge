@@ -260,7 +260,7 @@
             $this->score_model->register_score($data);
             
         }
-        public function test() {
+        public function test2() {
             echo 'register';
         }
         
