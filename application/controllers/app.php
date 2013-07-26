@@ -220,7 +220,8 @@
             
             // Get current score
             $score = $this->session->userdata['user_info']->score;
-            $old_score = $this->session->userdata['user_info']->score;
+            
+            $old_score = $this->session->userdata['user_info']->score; // grab old score to compare after
             
             // Calculate new score
             $score = $score + $answers['regular'] * $this->view_data['score_scale']['score_regular'];
