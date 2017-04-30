@@ -14,7 +14,7 @@
         
         public function check_session() {
             if($this->ci->session->userdata('logged') == false) {
-                App::index();
+                // App::index();
             }
         }
         

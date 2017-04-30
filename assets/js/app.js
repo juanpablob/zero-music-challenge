@@ -22,31 +22,32 @@ var app = {
     
     /* FB Session */
     fbSession: function(callback) {
-        FB.getLoginStatus(function(response) {
-            if(response.status === 'connected') {
-                var signedRequest = response.authResponse.signedRequest;
-                var accessToken = response.authResponse.accessToken;
-                //console.log('consumer url: ' + app.baseUrl + 'login/' + signedRequest + '/' + accessToken);
+        // FB.getLoginStatus(function(response) {
+        //     if(response.status === 'connected') {
+        //         var signedRequest = response.authResponse.signedRequest;
+        //         var accessToken = response.authResponse.accessToken;
+        //         //console.log('consumer url: ' + app.baseUrl + 'login/' + signedRequest + '/' + accessToken);
                 
-                $.ajax({
-                    url: app.baseUrl + 'login/' + signedRequest + '/' + accessToken,
-                    beforeSend: function() {
-                        $('.fb-connect').html('Un momento…');
-                        $('.fb-connect').unbind('click');
-                    },
-                    success: function(data) {
-                        if(data.logged === true) {
-                            callback();
-                        }
-                        else {
-                            alert(data.error);
+        //         $.ajax({
+        //             url: app.baseUrl + 'login/' + signedRequest + '/' + accessToken,
+        //             beforeSend: function() {
+        //                 $('.fb-connect').html('Un momento…');
+        //                 $('.fb-connect').unbind('click');
+        //             },
+        //             success: function(data) {
+        //                 if(data.logged === true) {
+        //                     callback();
+        //                 }
+        //                 else {
+        //                     alert(data.error);
                             
-                            window.location = app.fbAppUrl;
-                        }
-                    }
-                });
-            }
-        });
+        //                     window.location = app.fbAppUrl;
+        //                 }
+        //             }
+        //         });
+        //     }
+        // });
+        callback();
     },
     
     /* Constructor */
@@ -258,12 +259,13 @@ var app = {
             
             var next_url = $(this).attr('href');
             
-            FB.login(function(response) {
-                app.fbSession(function() {
-                    window.location = next_url;
-                });
-            }, { scope: app.fbScope }
-            );
+            // FB.login(function(response) {
+            //     app.fbSession(function() {
+            //         window.location = next_url;
+            //     });
+            // }, { scope: app.fbScope }
+            // );
+            window.location = next_url;
         });
         
         // Share Score

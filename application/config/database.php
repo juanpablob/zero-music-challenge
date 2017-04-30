@@ -54,9 +54,9 @@ elseif(ENVIRONMENT === 'production') {
 
 $active_record = TRUE;
 
-$db['development']['hostname'] = 'localhost';
+$db['development']['hostname'] = '192.168.254.254';
 $db['development']['username'] = 'root';
-$db['development']['password'] = 'root';
+$db['development']['password'] = 'vagrant';
 $db['development']['database'] = 'musicchallenge';
 $db['development']['dbdriver'] = 'mysql';
 $db['development']['dbprefix'] = '';
